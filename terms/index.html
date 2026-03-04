@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — Journey ADHD</title>
+    <meta name="description" content="Journey ADHD Terms of Service. Rules governing your use of our website and concierge ADHD care services.">
+    <link rel="canonical" href="https://journeyadhd.org/terms">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1B4965; --primary-light: #2D6A8F; --accent: #62B6CB;
+            --accent-light: #BEE9E8; --warm: #E8985E; --bg: #FAFCFD;
+            --bg-alt: #F0F7FA; --text: #1a1a2e; --text-light: #555B6E;
+            --white: #ffffff; --radius: 12px;
+            --shadow: 0 4px 24px rgba(27,73,101,0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(27,73,101,0.06); padding: 0 2rem; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-light); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-cta { background: var(--primary) !important; color: var(--white) !important; padding: 0.6rem 1.4rem !important; border-radius: 8px; font-weight: 600 !important; transition: all 0.2s !important; }
+        .nav-cta:hover { background: var(--primary-light) !important; }
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text); margin: 5px 0; transition: 0.3s; }
+
+        .legal-page { padding: 8rem 2rem 4rem; }
+        .legal-inner { max-width: 760px; margin: 0 auto; }
+        .legal-inner h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .legal-inner .effective { font-size: 0.9rem; color: var(--text-light); margin-bottom: 2.5rem; }
+        .legal-inner .intro { font-size: 1rem; color: var(--text-light); margin-bottom: 2rem; line-height: 1.7; }
+        .legal-inner h2 { font-size: 1.15rem; color: var(--primary); margin: 2rem 0 0.75rem; font-weight: 700; }
+        .legal-inner h3 { font-size: 0.95rem; color: var(--primary); margin: 1.25rem 0 0.5rem; font-weight: 600; }
+        .legal-inner p { font-size: 0.92rem; color: var(--text-light); margin-bottom: 0.75rem; line-height: 1.7; }
+        .legal-inner ul, .legal-inner ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+        .legal-inner li { font-size: 0.92rem; color: var(--text-light); margin-bottom: 0.4rem; line-height: 1.6; }
+        .legal-inner strong { color: var(--text); }
+
+        footer { background: var(--text); color: rgba(255,255,255,0.6); padding: 3rem 2rem; font-size: 0.85rem; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+        .footer-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.2rem; margin-bottom: 0.25rem; }
+        .footer-tagline { color: var(--accent-light); font-size: 0.85rem; margin-bottom: 1.5rem; }
+        .footer-links { margin-bottom: 1.5rem; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 0.75rem; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-legal { font-size: 0.75rem; line-height: 1.6; max-width: 700px; margin: 0 auto; }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); padding: 1.5rem 2rem; box-shadow: var(--shadow); gap: 1rem; }
+        }
+        @media (max-width: 600px) {
+            .legal-page { padding: 6rem 1.5rem 3rem; }
+            .legal-inner h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">Journey <span>ADHD</span></a>
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+            <a href="/#about">About</a>
+            <a href="/#services">Services</a>
+            <a href="/#pricing">Pricing</a>
+            <a href="/quiz">Take the Quiz</a>
+            <a href="/#get-started" class="nav-cta">Start Your Journey →</a>
+        </div>
+    </div>
+</nav>
+
+<div class="legal-page">
+    <div class="legal-inner">
+        <h1>Terms of Service</h1>
+        <p class="effective">Effective Date: March 4, 2026 · Last Updated: March 4, 2026</p>
+
+        <p class="intro">Welcome to Journey ADHD ("we," "us," or "our"), a service of Journey Healthcare. These Terms of Service ("Terms") govern your use of our website at journeyadhd.org and our concierge ADHD care services. By accessing our website or enrolling in our services, you agree to these Terms.</p>
+
+        <h2>1. Eligibility</h2>
+        <p>Journey ADHD services are available to:</p>
+        <ul>
+            <li>Adults aged <strong>18 years or older</strong></li>
+            <li>Residents of <strong>South Carolina</strong> or <strong>Tennessee</strong></li>
+            <li>Individuals who complete our enrollment process and agree to these Terms</li>
+        </ul>
+        <p>We reserve the right to decline or discontinue service at our discretion.</p>
+
+        <h2>2. Description of Services</h2>
+        <p>Journey ADHD provides virtual concierge ADHD care for adults, including:</p>
+        <ul>
+            <li>Comprehensive ADHD evaluation and diagnosis</li>
+            <li>Personalized treatment plans (medication management, functional medicine protocols, peptide therapy where appropriate)</li>
+            <li>Regular virtual check-ins with Dr. Ed O'Bryan, MD</li>
+            <li>One annual in-person visit (required for controlled substance prescribing compliance)</li>
+            <li>Direct physician communication</li>
+        </ul>
+        <p>Our services <strong>do not</strong> replace primary care. Journey ADHD is a specialty service focused on optimizing ADHD treatment.</p>
+
+        <h2>3. Membership and Fees</h2>
+        <ul>
+            <li>Journey ADHD operates on a <strong>monthly subscription model</strong> at approximately <strong>$150 per month</strong></li>
+            <li>Exact pricing will be confirmed during enrollment</li>
+            <li>Payment is due monthly via the payment method on file</li>
+            <li>Membership fees cover access to services described in Section 2; lab work, specialty referrals, and medications are not included in the membership fee</li>
+            <li>You are responsible for the cost of any prescribed medications and laboratory tests</li>
+        </ul>
+
+        <h2>4. Cancellation and Refunds</h2>
+        <ul>
+            <li>You may cancel your membership at any time by contacting us in writing (email or secure message)</li>
+            <li>Cancellation takes effect at the end of the current billing cycle</li>
+            <li><strong>No refunds</strong> will be issued for partial months</li>
+            <li>We reserve the right to terminate your membership if you violate these Terms, fail to pay fees, or if continued care is clinically inappropriate</li>
+        </ul>
+
+        <h2>5. Telehealth Consent</h2>
+        <p>By enrolling in Journey ADHD, you acknowledge and consent to receiving healthcare services via telehealth (video, phone, and/or secure messaging). You understand that:</p>
+        <ul>
+            <li>Telehealth is not the same as an in-person visit and has inherent limitations</li>
+            <li>Technical difficulties may occasionally disrupt sessions</li>
+            <li>Dr. O'Bryan may determine that in-person care or a referral is necessary</li>
+            <li>You are responsible for ensuring a private, adequate environment for telehealth visits</li>
+            <li>An annual in-person visit is required for patients receiving controlled substance prescriptions, in compliance with applicable state and federal regulations</li>
+        </ul>
+
+        <h2>6. Prescribing and Controlled Substances</h2>
+        <p>Journey ADHD may prescribe medications, including controlled substances (e.g., stimulant medications), as part of your treatment plan. You agree to:</p>
+        <ul>
+            <li>Provide accurate and complete medical history and medication information</li>
+            <li>Use prescribed medications only as directed</li>
+            <li>Not seek the same controlled substances from multiple providers simultaneously</li>
+            <li>Comply with any required drug screening, pill counts, or monitoring as requested</li>
+            <li>Attend the required annual in-person visit</li>
+        </ul>
+        <p>Failure to comply may result in discontinuation of prescribing and/or termination of membership.</p>
+
+        <h2>7. Medical Disclaimer</h2>
+        <ul>
+            <li>Journey ADHD provides clinical care through a licensed physician but <strong>does not provide emergency services</strong></li>
+            <li>If you are experiencing a medical emergency, call <strong>911</strong> or go to your nearest emergency room</li>
+            <li>If you are experiencing a mental health crisis, contact the <strong>988 Suicide & Crisis Lifeline</strong> (call or text 988)</li>
+            <li>Information on our website (articles, blog posts, quiz results) is for <strong>educational purposes only</strong> and does not constitute medical advice</li>
+            <li>A provider-patient relationship is established only upon formal enrollment and acceptance by Dr. O'Bryan</li>
+        </ul>
+
+        <h2>8. Your Responsibilities</h2>
+        <p>As a Journey ADHD member, you agree to:</p>
+        <ul>
+            <li>Provide truthful, accurate, and complete information</li>
+            <li>Keep your contact information and payment method current</li>
+            <li>Attend scheduled appointments or cancel with reasonable notice</li>
+            <li>Follow your agreed-upon treatment plan or communicate openly about changes</li>
+            <li>Treat our staff with respect</li>
+        </ul>
+
+        <h2>9. Intellectual Property</h2>
+        <p>All content on journeyadhd.org — including text, graphics, logos, and design — is the property of Journey Healthcare and protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without our written permission.</p>
+
+        <h2>10. Privacy</h2>
+        <p>Your use of our services is also governed by our <a href="/privacy" style="color: var(--accent); text-decoration: underline;">Privacy Policy</a>. By using our services, you acknowledge that you have read and understood our Privacy Policy.</p>
+
+        <h2>11. Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law:</p>
+        <ul>
+            <li>Journey ADHD and its providers shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our services</li>
+            <li>Our total liability for any claim shall not exceed the amount you have paid in membership fees during the three (3) months preceding the claim</li>
+            <li>We do not guarantee specific treatment outcomes</li>
+        </ul>
+
+        <h2>12. Dispute Resolution</h2>
+        <p>Any disputes arising from these Terms or our services shall be resolved through:</p>
+        <ol>
+            <li><strong>Informal resolution:</strong> Contact us first. Most issues can be resolved directly.</li>
+            <li><strong>Binding arbitration:</strong> If informal resolution fails, disputes will be settled by binding arbitration in accordance with the rules of the American Arbitration Association, conducted in South Carolina.</li>
+        </ol>
+        <p>You agree to waive any right to a jury trial or participation in a class action.</p>
+
+        <h2>13. Governing Law</h2>
+        <p>These Terms are governed by the laws of the <strong>State of South Carolina</strong>, without regard to conflict of law principles.</p>
+
+        <h2>14. Changes to These Terms</h2>
+        <p>We may update these Terms from time to time. Material changes will be communicated via email or website notice. Continued use of our services after changes constitutes acceptance.</p>
+
+        <h2>15. Contact Us</h2>
+        <p>Questions about these Terms? Reach out:</p>
+        <p><strong>Journey ADHD — A Service of Journey Healthcare</strong><br>
+        Email: journey@journeyadhd.org</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">Journey ADHD</div>
+        <p class="footer-tagline">Your brain. Your doctor. Your plan.</p>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#services">Services</a>
+            <a href="/#faq">FAQ</a>
+            <a href="/quiz">Quiz</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+        </div>
+        <p class="footer-legal">Journey ADHD is a service of Journey Healthcare. Currently available to adults 18+ residing in South Carolina and Tennessee. Journey ADHD does not replace primary care services. All prescribing follows applicable state and federal regulations.</p>
+        <p style="margin-top: 1rem; font-size: 0.75rem;">© 2026 Journey ADHD. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

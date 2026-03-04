@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is Concierge ADHD Care Right for You? — Journey ADHD</title>
+    <meta name="description" content="Take our quick 7-question quiz to see if Journey ADHD's concierge adult ADHD care is right for you.">
+    <meta property="og:title" content="Is Concierge ADHD Care Right for You?">
+    <meta property="og:description" content="7 quick questions. No login. No spam. Just an honest look at whether Journey ADHD is what you've been looking for.">
+    <link rel="canonical" href="https://journeyadhd.org/quiz">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1B4965; --primary-light: #2D6A8F; --accent: #62B6CB;
+            --accent-light: #BEE9E8; --warm: #E8985E; --bg: #FAFCFD;
+            --bg-alt: #F0F7FA; --text: #1a1a2e; --text-light: #555B6E;
+            --white: #ffffff; --radius: 12px;
+            --shadow: 0 4px 24px rgba(27,73,101,0.08);
+            --shadow-lg: 0 12px 48px rgba(27,73,101,0.12);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(27,73,101,0.06); padding: 0 2rem; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-light); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-cta { background: var(--primary) !important; color: var(--white) !important; padding: 0.6rem 1.4rem !important; border-radius: 8px; font-weight: 600 !important; }
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text); margin: 5px 0; }
+
+        /* QUIZ CONTAINER */
+        .quiz-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 6rem 1.5rem 3rem; }
+        .quiz-container { max-width: 600px; width: 100%; }
+
+        /* PROGRESS BAR */
+        .progress { margin-bottom: 2rem; }
+        .progress-label { font-size: 0.8rem; color: var(--text-light); margin-bottom: 0.5rem; font-weight: 500; }
+        .progress-bar { height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 3px; transition: width 0.4s ease; }
+
+        /* SCREENS */
+        .screen { display: none; animation: fadeIn 0.35s ease; }
+        .screen.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* INTRO */
+        .intro-screen { text-align: center; }
+        .intro-screen h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.2; }
+        .intro-screen p { color: var(--text-light); font-size: 1.05rem; margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+        .btn-start { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--primary); color: var(--white); padding: 1rem 2.5rem; border-radius: 10px; font-size: 1.05rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+        .btn-start:hover { background: var(--primary-light); transform: translateY(-1px); }
+
+        /* QUESTION */
+        .question-screen h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primary); margin-bottom: 1.5rem; line-height: 1.3; }
+        .options { display: flex; flex-direction: column; gap: 0.75rem; }
+        .option {
+            display: block; width: 100%; text-align: left; padding: 1rem 1.25rem;
+            background: var(--white); border: 2px solid #e2e8f0; border-radius: var(--radius);
+            font-size: 0.95rem; color: var(--text); cursor: pointer; transition: all 0.2s;
+            font-family: inherit; line-height: 1.5;
+        }
+        .option:hover { border-color: var(--accent); background: var(--accent-light); }
+        .option.selected { border-color: var(--primary); background: rgba(27,73,101,0.06); font-weight: 600; }
+
+        /* RESULT */
+        .result-screen { text-align: center; }
+        .result-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+        .result-screen h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem; line-height: 1.3; }
+        .result-screen .result-body { color: var(--text-light); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+        /* EMAIL CAPTURE */
+        .email-capture { background: var(--bg-alt); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+        .email-capture p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem; }
+        .email-row { display: flex; gap: 0.75rem; }
+        .email-row input { flex: 1; padding: 0.75rem 1rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 0.95rem; font-family: inherit; }
+        .email-row input:focus { outline: none; border-color: var(--accent); }
+        .email-row button { padding: 0.75rem 1.5rem; background: var(--primary); color: var(--white); border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-family: inherit; font-size: 0.9rem; white-space: nowrap; transition: background 0.2s; }
+        .email-row button:hover { background: var(--primary-light); }
+        .email-row button:disabled { opacity: 0.6; cursor: not-allowed; }
+        .email-success { color: var(--primary); font-weight: 600; font-size: 0.95rem; display: none; padding: 1rem 0; }
+        .result-cta { margin-top: 1rem; }
+        .result-cta a { color: var(--accent); text-decoration: underline; font-size: 0.9rem; }
+
+        /* FOOTER */
+        footer { background: var(--text); color: rgba(255,255,255,0.6); padding: 3rem 2rem; font-size: 0.85rem; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+        .footer-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.2rem; margin-bottom: 0.25rem; }
+        .footer-tagline { color: var(--accent-light); font-size: 0.85rem; margin-bottom: 1.5rem; }
+        .footer-links { margin-bottom: 1.5rem; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 0.75rem; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-legal { font-size: 0.75rem; line-height: 1.6; max-width: 700px; margin: 0 auto; }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; } .mobile-toggle { display: block; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); padding: 1.5rem 2rem; box-shadow: var(--shadow); gap: 1rem; }
+        }
+        @media (max-width: 600px) {
+            .intro-screen h1 { font-size: 1.7rem; }
+            .email-row { flex-direction: column; }
+            .email-row button { width: 100%; padding: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">Journey <span>ADHD</span></a>
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+            <a href="/#about">About</a>
+            <a href="/#services">Services</a>
+            <a href="/#pricing">Pricing</a>
+            <a href="/#faq">FAQ</a>
+            <a href="/#get-started" class="nav-cta">Start Your Journey →</a>
+        </div>
+    </div>
+</nav>
+
+<div class="quiz-wrap">
+    <div class="quiz-container">
+        <!-- Progress -->
+        <div class="progress" id="progress" style="display:none;">
+            <div class="progress-label"><span id="progress-text">1 of 7</span></div>
+            <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:14.28%"></div></div>
+        </div>
+
+        <!-- INTRO -->
+        <div class="screen intro-screen active" id="screen-intro">
+            <h1>Is concierge ADHD care right&nbsp;for&nbsp;you?</h1>
+            <p>7 quick questions. No login. No spam. Just an honest look at whether Journey ADHD is what you've been looking for.</p>
+            <button class="btn-start" onclick="startQuiz()">Let's find out →</button>
+        </div>
+
+        <!-- Q1 -->
+        <div class="screen question-screen" id="screen-1">
+            <h2>How would you describe your current ADHD treatment?</h2>
+            <div class="options">
+                <button class="option" data-q="1" data-v="a" onclick="answer(this)">I'm on medication but it feels like "good enough," not great</button>
+                <button class="option" data-q="1" data-v="b" onclick="answer(this)">I've tried a few things — nothing's really clicked</button>
+                <button class="option" data-q="1" data-v="c" onclick="answer(this)">I'm diagnosed but not currently being treated</button>
+                <button class="option" data-q="1" data-v="d" onclick="answer(this)">I think I might have ADHD but haven't been formally diagnosed</button>
+            </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="screen question-screen" id="screen-2">
+            <h2>How much time does your current provider spend with you per visit?</h2>
+            <div class="options">
+                <button class="option" data-q="2" data-v="a" onclick="answer(this)">10–15 minutes, tops</button>
+                <button class="option" data-q="2" data-v="b" onclick="answer(this)">20–30 minutes — decent but rushed</button>
+                <button class="option" data-q="2" data-v="c" onclick="answer(this)">I don't have a current ADHD provider</button>
+                <button class="option" data-q="2" data-v="d" onclick="answer(this)">I honestly can't remember the last time I was seen</button>
+            </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="screen question-screen" id="screen-3">
+            <h2>Has anyone ever looked beyond your ADHD medication — at your sleep, diet, gut health, or hormones?</h2>
+            <div class="options">
+                <button class="option" data-q="3" data-v="a" onclick="answer(this)">Nope. It's always just about the prescription.</button>
+                <button class="option" data-q="3" data-v="b" onclick="answer(this)">A little, but nothing thorough</button>
+                <button class="option" data-q="3" data-v="c" onclick="answer(this)">Yes, and it made a difference</button>
+                <button class="option" data-q="3" data-v="d" onclick="answer(this)">I didn't know that was even an option</button>
+            </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="screen question-screen" id="screen-4">
+            <h2>What frustrates you most about ADHD care right now?</h2>
+            <div class="options">
+                <button class="option" data-q="4" data-v="a" onclick="answer(this)">I feel like a number, not a person</button>
+                <button class="option" data-q="4" data-v="b" onclick="answer(this)">I can never get an appointment when I need one</button>
+                <button class="option" data-q="4" data-v="c" onclick="answer(this)">My provider doesn't really "get" ADHD</button>
+                <button class="option" data-q="4" data-v="d" onclick="answer(this)">I'm doing all the research myself — my doctor just signs off</button>
+            </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="screen question-screen" id="screen-5">
+            <h2>How do you feel about virtual visits?</h2>
+            <div class="options">
+                <button class="option" data-q="5" data-v="a" onclick="answer(this)">Love them — way easier than dragging myself to an office</button>
+                <button class="option" data-q="5" data-v="b" onclick="answer(this)">Fine with mostly virtual, but I'd want to meet my doctor in person at least once</button>
+                <button class="option" data-q="5" data-v="c" onclick="answer(this)">I prefer in-person but I'd try virtual for the right provider</button>
+                <button class="option" data-q="5" data-v="d" onclick="answer(this)">Never done one, but I'm open to it</button>
+            </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="screen question-screen" id="screen-6">
+            <h2>Would you be open to treatments beyond traditional stimulants — things like peptides, functional medicine protocols, or targeted supplements?</h2>
+            <div class="options">
+                <button class="option" data-q="6" data-v="a" onclick="answer(this)">Absolutely — I want every option on the table</button>
+                <button class="option" data-q="6" data-v="b" onclick="answer(this)">Curious but I'd need to understand them first</button>
+                <button class="option" data-q="6" data-v="c" onclick="answer(this)">Maybe, if my doctor recommended it</button>
+                <button class="option" data-q="6" data-v="d" onclick="answer(this)">I'd rather stick with what I know</button>
+            </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="screen question-screen" id="screen-7">
+            <h2>What matters most to you in an ADHD provider?</h2>
+            <div class="options">
+                <button class="option" data-q="7" data-v="a" onclick="answer(this)">Someone who actually listens and knows my history</button>
+                <button class="option" data-q="7" data-v="b" onclick="answer(this)">Access — I want to reach my doctor when I need them</button>
+                <button class="option" data-q="7" data-v="c" onclick="answer(this)">Expertise — I want an MD, not a mid-level provider</button>
+                <button class="option" data-q="7" data-v="d" onclick="answer(this)">All of the above, honestly</button>
+            </div>
+        </div>
+
+        <!-- RESULT A: Strong Fit -->
+        <div class="screen result-screen" id="result-a">
+            <div class="result-icon">✅</div>
+            <h2>Yeah, you're exactly who we built this for.</h2>
+            <p class="result-body">You know your ADHD care could be better — and you're right. You want a doctor who actually knows you, explores every option, and doesn't treat your brain like a checkbox.<br><br>Journey ADHD is concierge adult ADHD care from an MD who blends traditional and functional medicine. ~$150/month. Virtual visits. One doctor — yours.</p>
+            <div class="email-capture" id="capture-a">
+                <p>Drop your email and we'll send you everything you need to get started.</p>
+                <div class="email-row">
+                    <input type="email" id="email-a" placeholder="you@example.com" required>
+                    <button onclick="captureEmail('a')">Start Your Journey</button>
+                </div>
+            </div>
+            <div class="email-success" id="success-a">🎉 You're in! Check your inbox.</div>
+            <div class="result-cta"><a href="/">← Back to Journey ADHD</a></div>
+        </div>
+
+        <!-- RESULT B: Good Fit -->
+        <div class="screen result-screen" id="result-b">
+            <div class="result-icon">🤔</div>
+            <h2>Sounds like you're ready for something better.</h2>
+            <p class="result-body">You might not know exactly what concierge ADHD care looks like yet — and that's fine. Here's the short version: one doctor, real time with you, treatments that go beyond just stimulants, and a plan built for your specific brain.<br><br>We'd love to tell you more.</p>
+            <div class="email-capture" id="capture-b">
+                <p>Enter your email and we'll send you a breakdown of how Journey ADHD works — no pressure, no sales calls.</p>
+                <div class="email-row">
+                    <input type="email" id="email-b" placeholder="you@example.com" required>
+                    <button onclick="captureEmail('b')">Get the Full Story</button>
+                </div>
+            </div>
+            <div class="email-success" id="success-b">🎉 You're in! Check your inbox.</div>
+            <div class="result-cta"><a href="/">← Back to Journey ADHD</a></div>
+        </div>
+
+        <!-- RESULT C: Not Right Yet -->
+        <div class="screen result-screen" id="result-c">
+            <div class="result-icon">🚪</div>
+            <h2>We might not be your move right now — but keep us in your back pocket.</h2>
+            <p class="result-body">If you haven't been formally diagnosed yet, that's the first step — and we can point you in the right direction. If you're outside South Carolina or Tennessee, we're not there yet, but we're growing.<br><br>Either way, we're here when the timing's right.</p>
+            <div class="email-capture" id="capture-c">
+                <p>Drop your email and we'll let you know when we expand to your area — or when you're ready to explore what we offer.</p>
+                <div class="email-row">
+                    <input type="email" id="email-c" placeholder="you@example.com" required>
+                    <button onclick="captureEmail('c')">Stay in the Loop</button>
+                </div>
+            </div>
+            <div class="email-success" id="success-c">👍 We'll keep you posted!</div>
+            <div class="result-cta"><a href="/">← Back to Journey ADHD</a></div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">Journey ADHD</div>
+        <p class="footer-tagline">Your brain. Your doctor. Your plan.</p>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/#services">Services</a>
+            <a href="/#faq">FAQ</a>
+            <a href="/quiz">Quiz</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+        </div>
+        <p class="footer-legal">Journey ADHD is a service of Journey Healthcare. Currently available to adults 18+ residing in South Carolina and Tennessee. This quiz is for informational purposes only and does not constitute medical advice or establish a provider-patient relationship.</p>
+        <p style="margin-top: 1rem; font-size: 0.75rem;">© 2026 Journey ADHD. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+const answers = {};
+const totalQ = 7;
+
+function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function startQuiz() {
+    document.getElementById('progress').style.display = 'block';
+    updateProgress(1);
+    showScreen('screen-1');
+}
+
+function updateProgress(q) {
+    document.getElementById('progress-text').textContent = q + ' of ' + totalQ;
+    document.getElementById('progress-fill').style.width = ((q / totalQ) * 100) + '%';
+}
+
+function answer(btn) {
+    const q = btn.dataset.q;
+    const v = btn.dataset.v;
+    answers[q] = v;
+
+    // Visual feedback
+    btn.parentElement.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    // Auto-advance after brief delay
+    setTimeout(() => {
+        const next = parseInt(q) + 1;
+        if (next <= totalQ) {
+            updateProgress(next);
+            showScreen('screen-' + next);
+        } else {
+            showResult();
+        }
+    }, 350);
+}
+
+function showResult() {
+    document.getElementById('progress').style.display = 'none';
+    const tier = calculateTier();
+    showScreen('result-' + tier);
+}
+
+function calculateTier() {
+    // Result C: undiagnosed (Q1=d) or not open to alternatives (Q6=d)
+    if (answers['1'] === 'd' || answers['6'] === 'd') return 'c';
+
+    // Score: a/b answers = strong fit signals
+    let strongCount = 0;
+    for (let i = 1; i <= 7; i++) {
+        const a = answers[i];
+        if (a === 'a' || a === 'b') strongCount++;
+    }
+    // Q7 "all of the above" = strong signal
+    if (answers['7'] === 'd') strongCount++;
+
+    // Result A: Strong fit (5+ strong signals)
+    if (strongCount >= 5) return 'a';
+    // Result B: Good fit
+    return 'b';
+}
+
+async function captureEmail(tier) {
+    const input = document.getElementById('email-' + tier);
+    const email = input.value.trim();
+    if (!email || !email.includes('@')) { input.focus(); return; }
+
+    const btn = input.parentElement.querySelector('button');
+    btn.disabled = true; btn.textContent = 'Sending...';
+
+    try {
+        const body = new FormData();
+        body.append('email', email);
+        body.append('quiz_result', tier === 'a' ? 'Strong Fit' : tier === 'b' ? 'Good Fit' : 'Not Yet');
+        body.append('answers', JSON.stringify(answers));
+        body.append('_subject', 'Journey ADHD Quiz — ' + (tier === 'a' ? 'Strong Fit' : tier === 'b' ? 'Good Fit' : 'Waitlist'));
+        body.append('_template', 'table');
+
+        const resp = await fetch('https://formsubmit.co/ajax/journey@journeyadhd.org', {
+            method: 'POST', body: body, headers: { 'Accept': 'application/json' }
+        });
+
+        if (resp.ok) {
+            document.getElementById('capture-' + tier).style.display = 'none';
+            document.getElementById('success-' + tier).style.display = 'block';
+        } else {
+            btn.disabled = false; btn.textContent = 'Try Again';
+        }
+    } catch(e) {
+        btn.disabled = false; btn.textContent = 'Try Again';
+    }
+}
+</script>
+
+</body>
+</html>
