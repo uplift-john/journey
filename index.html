@@ -232,10 +232,12 @@
             display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center;
         }
         .doctor-photo {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 20px; aspect-ratio: 3/4;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-size: 4rem;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .doctor-photo img {
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: 20px;
         }
         .doctor-bio h2 {
             font-family: 'Playfair Display', serif;
@@ -662,7 +664,7 @@
             <h2>Meet Your Doctor</h2>
         </div>
         <div class="doctor-content">
-            <div class="doctor-photo">👨‍⚕️</div>
+            <div class="doctor-photo"><img src="ed-headshot.jpg" alt="Dr. Ed O'Bryan"></div>
             <div class="doctor-bio">
                 <h2>Dr. Ed O'Bryan, MD</h2>
                 <p class="title">Board-Certified Physician · ADHD Specialist</p>
