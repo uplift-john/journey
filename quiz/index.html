@@ -151,6 +151,7 @@
                 <button class="option" data-q="1" data-v="b" onclick="answer(this)">I've tried a few things — nothing's really clicked</button>
                 <button class="option" data-q="1" data-v="c" onclick="answer(this)">I'm diagnosed but not currently being treated</button>
                 <button class="option" data-q="1" data-v="d" onclick="answer(this)">I think I might have ADHD but haven't been formally diagnosed</button>
+                <button class="option" data-q="1" data-v="e" onclick="answer(this)">I have a prescription and just need a new doctor</button>
             </div>
         </div>
 
@@ -224,7 +225,7 @@
         <div class="screen result-screen" id="result-a">
             <div class="result-icon">✅</div>
             <h2>Yeah, you're exactly who we built this for.</h2>
-            <p class="result-body">You know your ADHD care could be better — and you're right. You want a doctor who actually knows you, explores every option, and doesn't treat your brain like a checkbox.<br><br>Journey ADHD is concierge adult ADHD care from an MD who blends traditional and functional medicine. ~$150/month. Virtual visits. One doctor — yours.</p>
+            <p class="result-body">You know your ADHD care could be better — and you're right. You want a doctor who actually knows you, explores every option, and doesn't treat your brain like a checkbox.<br><br>Journey ADHD is concierge adult ADHD care from an MD who blends traditional and functional medicine. $149/month. Virtual visits. One doctor — yours.</p>
             <div class="email-capture" id="capture-a">
                 <p>Drop your email and we'll send you everything you need to get started.</p>
                 <div class="email-row">
@@ -283,7 +284,7 @@
             <a href="/privacy">Privacy Policy</a>
             <a href="/terms">Terms of Service</a>
         </div>
-        <p class="footer-legal">Journey ADHD is a service of Journey Healthcare. Currently available to adults 18+ residing in South Carolina and Tennessee. This quiz is for informational purposes only and does not constitute medical advice or establish a provider-patient relationship.</p>
+        <p class="footer-legal">Journey ADHD is a service of Journey Healthcare. Currently available to adults 16+ residing in South Carolina and Tennessee. This quiz is for informational purposes only and does not constitute medical advice or establish a provider-patient relationship.</p>
         <p style="margin-top: 1rem; font-size: 0.75rem;">© 2026 Journey ADHD. All rights reserved.</p>
     </div>
 </footer>
@@ -337,22 +338,8 @@ function showResult() {
 }
 
 function calculateTier() {
-    // Result C: undiagnosed (Q1=d) or not open to alternatives (Q6=d)
-    if (answers['1'] === 'd' || answers['6'] === 'd') return 'c';
-
-    // Score: a/b answers = strong fit signals
-    let strongCount = 0;
-    for (let i = 1; i <= 7; i++) {
-        const a = answers[i];
-        if (a === 'a' || a === 'b') strongCount++;
-    }
-    // Q7 "all of the above" = strong signal
-    if (answers['7'] === 'd') strongCount++;
-
-    // Result A: Strong fit (5+ strong signals)
-    if (strongCount >= 5) return 'a';
-    // Result B: Good fit
-    return 'b';
+    // Everyone's a great fit — move them to sign-up
+    return 'a';
 }
 
 async function captureEmail(tier) {
