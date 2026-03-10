@@ -350,16 +350,23 @@ async function captureEmail(tier) {
     const btn = input.parentElement.querySelector('button');
     btn.disabled = true; btn.textContent = 'Sending...';
 
-    try {
-        const body = new FormData();
-        body.append('email', email);
-        body.append('quiz_result', tier === 'a' ? 'Strong Fit' : tier === 'b' ? 'Good Fit' : 'Not Yet');
-        body.append('answers', JSON.stringify(answers));
-        body.append('_subject', 'Journey ADHD Quiz — ' + (tier === 'a' ? 'Strong Fit' : tier === 'b' ? 'Good Fit' : 'Waitlist'));
-        body.append('_template', 'table');
+    const quizResult = tier === 'a' ? 'Strong Fit' : tier === 'b' ? 'Good Fit' : 'Not Yet';
 
-        const resp = await fetch('https://formsubmit.co/ajax/journey@journeyadhd.org', {
-            method: 'POST', body: body, headers: { 'Accept': 'application/json' }
+    try {
+        // Submit to GHL via form embed endpoint
+        const resp = await fetch('https://backend.leadconnectorhq.com/forms/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                formId: '3F7Gd4IVyMXx4vrershc',
+                locationId: 'le94xYtmg53BNHTpgAQv',
+                email: email,
+                customField: {
+                    quiz_result: quizResult,
+                    quiz_answers: JSON.stringify(answers)
+                },
+                source: 'Journey ADHD Quiz — ' + quizResult
+            })
         });
 
         if (resp.ok) {
