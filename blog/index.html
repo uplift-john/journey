@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Journey ADHD | ADHD Treatment Insights</title>
+    <meta name="description" content="Expert insights on ADHD treatment, functional medicine, medication management, and living well with ADHD. From Dr. Ed O'Bryan, board-certified physician.">
+    <link rel="canonical" href="https://journeyadhd.org/blog">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1B4965; --primary-light: #2D6A8F; --accent: #62B6CB;
+            --accent-light: #BEE9E8; --warm: #E8985E; --bg: #FAFCFD;
+            --bg-alt: #F0F7FA; --text: #1a1a2e; --text-light: #555B6E;
+            --white: #ffffff; --radius: 12px;
+            --shadow: 0 4px 24px rgba(27,73,101,0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(27,73,101,0.06); padding: 0 2rem; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-light); font-size: 0.9rem; font-weight: 500; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-cta { background: var(--primary) !important; color: var(--white) !important; padding: 0.6rem 1.4rem !important; border-radius: 8px; font-weight: 600 !important; }
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+        .mobile-toggle span { display: block; width: 24px; height: 2px; background: var(--text); margin: 5px 0; }
+
+        .blog-header { padding: 8rem 2rem 3rem; text-align: center; background: var(--bg-alt); }
+        .blog-header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .blog-header p { color: var(--text-light); font-size: 1.05rem; }
+
+        .blog-list { max-width: 800px; margin: 0 auto; padding: 3rem 2rem; }
+        .blog-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 2rem; margin-bottom: 1.5rem; transition: transform 0.2s; }
+        .blog-card:hover { transform: translateY(-2px); }
+        .blog-card h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .blog-card h2 a { color: inherit; text-decoration: none; }
+        .blog-card h2 a:hover { color: var(--primary-light); }
+        .blog-meta { font-size: 0.8rem; color: var(--text-light); margin-bottom: 1rem; }
+        .blog-card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
+        .read-more { color: var(--accent); font-weight: 600; text-decoration: none; font-size: 0.9rem; }
+        .read-more:hover { color: var(--primary); }
+
+        .blog-cta { text-align: center; padding: 3rem 2rem; background: var(--bg-alt); border-radius: var(--radius); max-width: 800px; margin: 0 auto 3rem; }
+        .blog-cta h3 { font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .blog-cta p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.25rem; }
+        .blog-cta a { display: inline-block; background: var(--primary); color: var(--white); padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none; }
+        .blog-cta a:hover { background: var(--primary-light); }
+
+        footer { background: var(--text); color: rgba(255,255,255,0.6); padding: 3rem 2rem; font-size: 0.85rem; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+        .footer-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.2rem; margin-bottom: 0.25rem; }
+        .footer-tagline { color: var(--accent-light); font-size: 0.85rem; margin-bottom: 1.5rem; }
+        .footer-links { margin-bottom: 1.5rem; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 0.75rem; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--white); }
+        .footer-legal { font-size: 0.75rem; line-height: 1.6; max-width: 700px; margin: 0 auto; }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; } .mobile-toggle { display: block; }
+            .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); padding: 1.5rem 2rem; box-shadow: var(--shadow); gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">Journey <span>ADHD</span></a>
+        <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+            <a href="/#about">About</a>
+            <a href="/#services">Services</a>
+            <a href="/#pricing">Pricing</a>
+            <a href="/#faq">FAQ</a>
+            <a href="/quiz">Take the Quiz</a>
+            <a href="/#get-started" class="nav-cta">Start Your Journey →</a>
+        </div>
+    </div>
+</nav>
+
+<div class="blog-header">
+    <h1>The Journey Blog</h1>
+    <p>ADHD insights from a doctor who actually has time to explain things.</p>
+</div>
+
+<div class="blog-list">
+    <div class="blog-card">
+        <h2><a href="/blog/why-your-15-minute-adhd-med-check-isnt-enough">Why Your 15-Minute ADHD Med Check Isn't Enough</a></h2>
+        <div class="blog-meta">March 9, 2026 · Dr. Ed O'Bryan · 5 min read</div>
+        <p>You waited six weeks for this appointment. You rearranged your whole day. You sit down. The doctor asks how the meds are working. You say "fine, I guess?" They renew the prescription. And you're out the door before you've even figured out what you wanted to say.</p>
+        <a href="/blog/why-your-15-minute-adhd-med-check-isnt-enough" class="read-more">Read more →</a>
+    </div>
+
+    <div class="blog-card">
+        <h2><a href="/blog/functional-medicine-for-adhd">Functional Medicine for ADHD: What Your Doctor Isn't Telling You</a></h2>
+        <div class="blog-meta">March 9, 2026 · Dr. Ed O'Bryan · 6 min read</div>
+        <p>If you've been medicated for a while and you're still struggling — still exhausted, still emotionally raw, still white-knuckling your way through Tuesday — it might be time to ask a question your doctor probably hasn't brought up: what else is going on in your body?</p>
+        <a href="/blog/functional-medicine-for-adhd" class="read-more">Read more →</a>
+    </div>
+</div>
+
+<div class="blog-cta">
+    <h3>Think you might need better ADHD care?</h3>
+    <p>Take our 2-minute quiz and find out if Journey ADHD is right for you.</p>
+    <a href="/quiz">Take the Quiz →</a>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">Journey ADHD</div>
+        <p class="footer-tagline">Your brain. Your doctor. Your plan.</p>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/#about">About</a>
+            <a href="/blog">Blog</a>
+            <a href="/#faq">FAQ</a>
+            <a href="/quiz">Quiz</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+        </div>
+        <p class="footer-legal">Journey ADHD is a service of Journey Healthcare. Currently available to adults 16+ residing in South Carolina and Tennessee.</p>
+        <p style="margin-top: 1rem; font-size: 0.75rem;">© 2026 Journey ADHD. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
