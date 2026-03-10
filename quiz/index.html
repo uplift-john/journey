@@ -227,13 +227,22 @@
             <h2>Yeah, you're exactly who we built this for.</h2>
             <p class="result-body">You know your ADHD care could be better — and you're right. You want a doctor who actually knows you, explores every option, and doesn't treat your brain like a checkbox.<br><br>Journey ADHD is concierge adult ADHD care from an MD who blends traditional and functional medicine. $149/month. Virtual visits. One doctor — yours.</p>
             <div class="email-capture" id="capture-a">
-                <p>Drop your email and we'll send you everything you need to get started.</p>
-                <div class="email-row">
-                    <input type="email" id="email-a" placeholder="you@example.com" required>
-                    <button onclick="captureEmail('a')">Start Your Journey</button>
-                </div>
+                <p>Drop your info and we'll reach out to get you started.</p>
+                <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/3F7Gd4IVyMXx4vrershc"
+                    style="display:block;width:100%;height:400px;border:none;border-radius:8px;"
+                    id="inline-quiz-a-3F7Gd4IVyMXx4vrershc"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-activation-type="alwaysActivated"
+                    data-deactivation-type="neverDeactivate"
+                    data-form-name="Journey ADHD Quiz - Strong Fit"
+                    data-height="400"
+                    data-layout-iframe-id="inline-quiz-a-3F7Gd4IVyMXx4vrershc"
+                    data-form-id="3F7Gd4IVyMXx4vrershc"
+                    title="Journey ADHD Sign-Up"
+                ></iframe>
             </div>
-            <div class="email-success" id="success-a">🎉 You're in! Check your inbox.</div>
             <div class="result-cta"><a href="/">← Back to Journey ADHD</a></div>
         </div>
 
@@ -243,13 +252,22 @@
             <h2>Sounds like you're ready for something better.</h2>
             <p class="result-body">You might not know exactly what concierge ADHD care looks like yet — and that's fine. Here's the short version: one doctor, real time with you, treatments that go beyond just stimulants, and a plan built for your specific brain.<br><br>We'd love to tell you more.</p>
             <div class="email-capture" id="capture-b">
-                <p>Enter your email and we'll send you a breakdown of how Journey ADHD works — no pressure, no sales calls.</p>
-                <div class="email-row">
-                    <input type="email" id="email-b" placeholder="you@example.com" required>
-                    <button onclick="captureEmail('b')">Get the Full Story</button>
-                </div>
+                <p>Enter your info and we'll send you a breakdown of how Journey ADHD works — no pressure, no sales calls.</p>
+                <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/3F7Gd4IVyMXx4vrershc"
+                    style="display:block;width:100%;height:400px;border:none;border-radius:8px;"
+                    id="inline-quiz-b-3F7Gd4IVyMXx4vrershc"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-activation-type="alwaysActivated"
+                    data-deactivation-type="neverDeactivate"
+                    data-form-name="Journey ADHD Quiz - Good Fit"
+                    data-height="400"
+                    data-layout-iframe-id="inline-quiz-b-3F7Gd4IVyMXx4vrershc"
+                    data-form-id="3F7Gd4IVyMXx4vrershc"
+                    title="Journey ADHD Sign-Up"
+                ></iframe>
             </div>
-            <div class="email-success" id="success-b">🎉 You're in! Check your inbox.</div>
             <div class="result-cta"><a href="/">← Back to Journey ADHD</a></div>
         </div>
 
@@ -259,13 +277,22 @@
             <h2>We might not be your move right now — but keep us in your back pocket.</h2>
             <p class="result-body">If you haven't been formally diagnosed yet, that's the first step — and we can point you in the right direction. If you're outside South Carolina or Tennessee, we're not there yet, but we're growing.<br><br>Either way, we're here when the timing's right.</p>
             <div class="email-capture" id="capture-c">
-                <p>Drop your email and we'll let you know when we expand to your area — or when you're ready to explore what we offer.</p>
-                <div class="email-row">
-                    <input type="email" id="email-c" placeholder="you@example.com" required>
-                    <button onclick="captureEmail('c')">Stay in the Loop</button>
-                </div>
+                <p>Drop your info and we'll let you know when we expand to your area — or when you're ready to explore what we offer.</p>
+                <iframe
+                    src="https://api.leadconnectorhq.com/widget/form/3F7Gd4IVyMXx4vrershc"
+                    style="display:block;width:100%;height:400px;border:none;border-radius:8px;"
+                    id="inline-quiz-c-3F7Gd4IVyMXx4vrershc"
+                    data-layout="{'id':'INLINE'}"
+                    data-trigger-type="alwaysShow"
+                    data-activation-type="alwaysActivated"
+                    data-deactivation-type="neverDeactivate"
+                    data-form-name="Journey ADHD Quiz - Waitlist"
+                    data-height="400"
+                    data-layout-iframe-id="inline-quiz-c-3F7Gd4IVyMXx4vrershc"
+                    data-form-id="3F7Gd4IVyMXx4vrershc"
+                    title="Journey ADHD Sign-Up"
+                ></iframe>
             </div>
-            <div class="email-success" id="success-c">👍 We'll keep you posted!</div>
             <div class="result-cta"><a href="/">← Back to Journey ADHD</a></div>
         </div>
     </div>
@@ -342,44 +369,9 @@ function calculateTier() {
     return 'a';
 }
 
-async function captureEmail(tier) {
-    const input = document.getElementById('email-' + tier);
-    const email = input.value.trim();
-    if (!email || !email.includes('@')) { input.focus(); return; }
-
-    const btn = input.parentElement.querySelector('button');
-    btn.disabled = true; btn.textContent = 'Sending...';
-
-    const quizResult = tier === 'a' ? 'Strong Fit' : tier === 'b' ? 'Good Fit' : 'Not Yet';
-
-    try {
-        // Submit to GHL via form embed endpoint
-        const resp = await fetch('https://backend.leadconnectorhq.com/forms/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                formId: '3F7Gd4IVyMXx4vrershc',
-                locationId: 'le94xYtmg53BNHTpgAQv',
-                email: email,
-                customField: {
-                    quiz_result: quizResult,
-                    quiz_answers: JSON.stringify(answers)
-                },
-                source: 'Journey ADHD Quiz — ' + quizResult
-            })
-        });
-
-        if (resp.ok) {
-            document.getElementById('capture-' + tier).style.display = 'none';
-            document.getElementById('success-' + tier).style.display = 'block';
-        } else {
-            btn.disabled = false; btn.textContent = 'Try Again';
-        }
-    } catch(e) {
-        btn.disabled = false; btn.textContent = 'Try Again';
-    }
-}
+// GHL embedded forms handle submission directly via iframe
 </script>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
 </body>
 </html>
